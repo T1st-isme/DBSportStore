@@ -34,6 +34,7 @@ namespace DBSportStore.Models
         [NotMapped]
         [Compare("PasswordUser")]
         [DisplayName("Nh?p l?i m?t kh?u")]
+        [DataType(DataType.Password)]
         public string ConfirmPass { get; set; }
         [NotMapped]
         public string ErrorLogin { get; set; }

@@ -1,0 +1,243 @@
+﻿@model DBSportStore.Models.AdminUser
+
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_LayoutLogReg.cshtml";
+}
+
+<style type="text/css">
+    .field-validation-error {
+        color: red;
+        position:relative; bottom:25px;
+    }
+    html {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: linear-gradient(#141e30, #243b55);
+    }
+
+    .login-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,.5);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.6);
+        border-radius: 10px;
+    }
+
+        .login-box h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .login-box .user-box {
+            position: relative;
+        }
+
+            .login-box .user-box input {
+                width: 100%;
+                padding: 10px 0;
+                font-size: 16px;
+                color: #fff;
+                margin-bottom: 30px;
+                border: none;
+                border-bottom: 1px solid #fff;
+                outline: none;
+                background: transparent;
+            }
+
+            .login-box .user-box label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 10px 0;
+                font-size: 12px;
+                color: #fff;
+                pointer-events: none;
+                transition: .5s;
+            }
+
+            .login-box .user-box input:focus ~ label,
+            .login-box .user-box input:valid ~ label {
+                top: -20px;
+                left: 0;
+                color: #03e9f4;
+                font-size: 15px;
+            }
+
+        .login-box form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #03e9f4;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+            letter-spacing: 4px
+        }
+
+        .login-box a:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+        }
+
+        .login-box a span {
+            position: absolute;
+            display: block;
+        }
+
+            .login-box a span:nth-child(1) {
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #03e9f4);
+                animation: btn-anim1 1s linear infinite;
+            }
+
+
+
+            .login-box a span:nth-child(2) {
+                top: -100%;
+                right: 0;
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(180deg, transparent, #03e9f4);
+                animation: btn-anim2 1s linear infinite;
+                animation-delay: .25s
+            }
+
+
+
+            .login-box a span:nth-child(3) {
+                bottom: 0;
+                right: -100%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(270deg, transparent, #03e9f4);
+                animation: btn-anim3 1s linear infinite;
+                animation-delay: .5s
+            }
+
+
+
+            .login-box a span:nth-child(4) {
+                bottom: -100%;
+                left: 0;
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(360deg, transparent, #03e9f4);
+                animation: btn-anim4 1s linear infinite;
+                animation-delay: .75s
+            }
+
+    button {
+        font-size: 15px;
+        background-color: cyan;
+        width: 80%;
+        height: 2.5rem;
+        position: relative;
+        left: 10%;
+    }
+
+        button:hover {
+            background-color: black;
+            color: cyan;
+            border: 1px solid cyan;
+        }
+</style>
+@*<h2>Đăng ký</h2>
+    @using (Html.BeginForm("RegisterUser", "LoginUser", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken();
+        <p>Mã tài khoản</p>
+        <p>@Html.EditorFor(model => model.ID)</p>
+        <p>@Html.ValidationMessageFor(model => model.ID)</p>
+
+        if (ViewBag.ErrorRegister != null)
+        {
+            <p>@ViewBag.ErrorRegister</p>
+        }
+
+        <p>Tên tài khoản</p>
+        <p>@Html.EditorFor(model => model.NameUser)</p>
+        <p>@Html.ValidationMessageFor(model => model.NameUser)</p>
+
+
+        <p>Chức vụ</p>
+        <p>@Html.EditorFor(model => model.RoleUser)</p>
+        <p>@Html.ValidationMessageFor(model => model.RoleUser)</p>
+
+        <p>Nhập mật khẩu</p>
+        <p>@Html.EditorFor(model => model.PasswordUser)</p>
+        <p>@Html.ValidationMessageFor(model => model.PasswordUser)</p>
+
+        <p>Nhập lại mật khẩu</p>
+        <p>@Html.EditorFor(model => model.ConfirmPass)</p>
+        <p>@Html.ValidationMessageFor(model => model.ConfirmPass)</p>
+        <input type="submit" value="Register" />
+    }*@
+
+
+@using (Html.BeginForm("RegisterUser", "LoginUser", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="login-box">
+        <h2>Đăng Ký</h2>
+        <form>
+            <div class="user-box">
+                @Html.EditorFor(model => model.ID)
+                @Html.ValidationMessageFor(model => model.ID)
+                <label>Mã tài khoản</label>
+
+            </div>
+            @if (ViewBag.ErrorRegister != null)
+            {
+                <p>@ViewBag.ErrorRegister</p>
+            }
+
+            <div class="user-box">
+                @Html.EditorFor(model => model.NameUser)
+                @Html.ValidationMessageFor(model => model.NameUser)
+                <label>Tên tài khoản</label>
+
+            </div>
+            <div class="user-box">
+                @Html.EditorFor(model => model.RoleUser)
+                @Html.ValidationMessageFor(model => model.RoleUser)
+                <label>Chức vụ</label>
+
+            </div>
+            <div class="user-box">
+                @Html.EditorFor(model => model.PasswordUser)
+                @Html.ValidationMessageFor(model => model.PasswordUser)
+                <label>Mật khẩu </label>
+
+            </div>
+            <div class="user-box">
+                @Html.EditorFor(model => model.ConfirmPass)
+                @Html.ValidationMessageFor(model => model.ConfirmPass)
+                <label>Nhập lại mật khẩu </label>
+
+            </div>
+            <button type="submit">Đăng ký</button>
+        </form>
+    </div>
+
+}
