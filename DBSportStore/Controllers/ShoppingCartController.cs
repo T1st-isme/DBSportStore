@@ -96,7 +96,7 @@ namespace DBSportStore.Controllers
             }
             catch
             {
-                return Content("Error checkout. Please check information of Customer.......Thanks");
+                return Content("Có sai sót. Xin vui lòng kiểm tra lại thông tin...........Xin cảm ơn");
             }
         }
         public ActionResult CheckOut_Success()

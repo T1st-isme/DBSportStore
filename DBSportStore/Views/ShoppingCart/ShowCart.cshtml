@@ -26,7 +26,7 @@
                 decimal total = item._quantity * (decimal)item._product.Price.Value;
                 <tr>
                     <td>@Html.DisplayFor(model => item._product.NamePro)</td>
-                    <td><img src="~/Content/images/@item._product.ImagePro" height="60" width="50" /></td>
+                    <td><img src="~/Content/images/@item._product.ImagePro" height="90" width="80" /></td>
                     <td>@Html.DisplayFor(model => item._product.Price)</td>
                     <td>
                         @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart")) 
@@ -36,7 +36,7 @@
                             <input type="submit" value="Update" />
                         }
                     </td>
-                    <td>@total</td>
+                    <td>@total.ToString("#,##0").Replace(',','.') đồng</td>
                     <td>
                         <a href="/ShoppingCart/RemoveCart/@item._product.ProductID">Xóa</a>
                     </td>
@@ -45,7 +45,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="6" style="text-align: right">Tổng tiền: @Model.Total_money()</td>
+                <td colspan="6" style="text-align: right; color:red; font-size:25px">Tổng tiền: @Model.Total_money().ToString("#,##0").Replace(',', '.') đồng</td>
             </tr>
             <tr>
                 <td colspan="2"></td>
@@ -54,18 +54,18 @@
                     {
                         <table style="border-collapse:separate; border-spacing:5px;">
                             <tr>
-                                <td>Code Customer:</td>
+                                <td>Mã khách hàng:</td>
                                 <td><input type="number" name="CodeCustomer" required /></td>
                             </tr>
                             <tr>
-                                <td>Address Delivery:</td>
+                                <td>Địa chỉ giao hàng:</td>
                                 <td><input type="text" name="AddressDelivery" required /></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="submit" value="Thanh toán" class="btn btn-success" />
                                     <a href="@Url.Action("Create", "Customers")" class="btn btn-success">Đăng ký</a>
+                                    <input type="submit" value="Thanh toán" class="btn btn-primary" />
                                 </td>
                             </tr>
                         </table>
